@@ -14,11 +14,11 @@ cd TodoApp
 ```
 2. Install dependencies 
 ```
-- npm install.
+npm install
 ```
  OR
 ```
-- npm i
+npm i
 ```
 3. Start the application by running the script on android or IOS
 
@@ -27,7 +27,7 @@ cd TodoApp
 ``` 
 OR
 ```
-- npm run ios
+npm run ios
 ``` 
 
 ## Author
