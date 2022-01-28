@@ -16,7 +16,7 @@ cd TodoApp
 ```
 - npm install.
 ```
-##### OR
+ OR
 ```
 - npm i
 ```
@@ -25,7 +25,7 @@ cd TodoApp
 ```
 - npm run android
 ``` 
-##### OR
+OR
 ```
 - npm run ios
 ``` 
