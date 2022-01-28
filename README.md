@@ -23,7 +23,7 @@ npm i
 3. Start the application by running the script on android or IOS
 
 ```
-- npm run android
+npm run android
 ``` 
 OR
 ```
