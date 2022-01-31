@@ -2,9 +2,11 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View } from 'react-native';
 
+import Home from '../screens/Home';
+
 export type StackParamList = {
   Home: undefined;
-  Details: undefined;
+  Details: { itemId: number };
   NewTask: undefined;
 };
 
@@ -14,11 +16,7 @@ const AppNavigator = () => (
   <Stack.Navigator initialRouteName="Home">
     <Stack.Screen
       name="Home"
-      component={() => (
-        <View>
-          <Text>Home</Text>
-        </View>
-      )}
+      component={Home}
       options={{ headerShown: false }}
     />
     <Stack.Screen
