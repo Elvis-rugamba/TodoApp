@@ -15,6 +15,10 @@ export const GET_SINGLE_START = `${prefix}_GET_SINGLE_START`;
 export const GET_SINGLE_SUCCESS = `${prefix}_GET_SINGLE_SUCCESS`;
 export const GET_SINGLE_ERROR = `${prefix}_GET_SINGLE_ERROR`;
 
+export const GET_ACTIVE = `${prefix}_GET_ACTIVE`;
+
+export const GET_DONE = `${prefix}_GET_DONE`;
+
 export const UPDATE = `${prefix}_UPDATE`;
 export const UPDATE_START = `${prefix}_UPDATE_START`;
 export const UPDATE_SUCCESS = `${prefix}_UPDATE_SUCCESS`;

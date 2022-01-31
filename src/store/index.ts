@@ -10,3 +10,5 @@ export const store: Store = createStore(
   applyMiddleware(...middlewares),
 );
 export const persistor = persistStore(store);
+
+export type AppDispatch = typeof store.dispatch;
