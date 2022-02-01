@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useForm, Controller } from 'react-hook-form';
@@ -12,33 +12,50 @@ import Input from '../../components/Input';
 import ImagePicker from '../../components/ImagePicker';
 import { StackParamList } from '../../navigation/AppNavigator';
 import useAppDispatch from '../../hooks/useAppDispatch';
-import { createTodo } from '../../store/modules/todo/actions';
+import useAppSelector from '../../hooks/useAppSelector';
+import { getSingleTodo, updateTodo } from '../../store/modules/todo/actions';
+import { selectTodo } from '../../store/modules/todo/selectors';
 import theme from '../../constants/theme';
 import styles from './styles';
 
-type NewTaskProps = {
-  navigation: NativeStackScreenProps<StackParamList, 'NewTask'>['navigation'];
+type EditTaskProps = {
+  navigation: NativeStackScreenProps<StackParamList, 'EditTask'>['navigation'];
+  route: NativeStackScreenProps<StackParamList, 'EditTask'>['route'];
 };
 
-const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
-  const [image, setImage] = useState();
+const EditTask: React.FC<EditTaskProps> = ({ navigation, route }) => {
+  const itemId = route.params?.itemId;
+  const [image, setImage] = useState<any>();
   const {
     control,
+    setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<Todo>({
-    defaultValues: {
-      priority: 'Low',
-    },
-  });
+  } = useForm<Todo>();
   const dispatch = useAppDispatch();
+  const todo = useAppSelector(selectTodo);
+
+  useEffect(() => {
+    dispatch(getSingleTodo(itemId));
+  }, [itemId, dispatch]);
+
+  useEffect(() => {
+    if (todo) {
+      setValue('title', todo.title);
+      setValue('description', todo.description);
+      setValue('priority', todo.priority);
+      setImage(todo.image);
+    }
+  }, [todo, setValue, dispatch]);
 
   const onImagePicker = (data: any) => {
     setImage(data.uri);
   };
 
   const onSubmit = handleSubmit(({ title, description, priority }) => {
-    dispatch(createTodo({ title, description, priority, image: image }));
+    dispatch(
+      updateTodo(itemId, { title, description, priority, image: image }),
+    );
     navigation.navigate('Home');
   });
 
@@ -50,13 +67,14 @@ const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
         <Block flex style={styles.content}>
           <Block style={styles.titleView}>
             <Text h5 bold>
-              New Task
+              Edit Task
             </Text>
           </Block>
           <Block style={styles.form}>
             <ImagePicker
               label="Add Image"
               placeholder="Tap to add Image"
+              image={todo?.image}
               onChange={onImagePicker}
             />
             <Controller
@@ -121,7 +139,7 @@ const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
               )}
             />
             <Button style={styles.button} onPress={onSubmit}>
-              Create Task
+              Update Task
             </Button>
           </Block>
         </Block>
@@ -130,4 +148,4 @@ const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
   );
 };
 
-export default NewTask;
+export default EditTask;
