@@ -10,6 +10,9 @@ type Sizes =
   | 'windowHeight'
   | 'windowWidth'
 
+  // Input
+  | 'INPUT_HORIZONTAL'
+
   // Typography
   | 'H1'
   | 'H2'
@@ -32,6 +35,9 @@ const SIZES: Record<Sizes, number> = {
   BORDER_RADIUS: 4,
   windowHeight,
   windowWidth,
+
+  // Input
+  INPUT_HORIZONTAL: 8,
 
   // Typography
   H1: 94,

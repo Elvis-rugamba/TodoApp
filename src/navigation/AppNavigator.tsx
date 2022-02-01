@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View } from 'react-native';
 
 import Home from '../screens/Home';
+import NewTask from '../screens/NewTask';
 
 export type StackParamList = {
   Home: undefined;
@@ -13,12 +14,10 @@ export type StackParamList = {
 const Stack = createNativeStackNavigator<StackParamList>();
 
 const AppNavigator = () => (
-  <Stack.Navigator initialRouteName="Home">
-    <Stack.Screen
-      name="Home"
-      component={Home}
-      options={{ headerShown: false }}
-    />
+  <Stack.Navigator
+    initialRouteName="Home"
+    screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Home" component={Home} />
     <Stack.Screen
       name="Details"
       component={() => (
@@ -26,17 +25,8 @@ const AppNavigator = () => (
           <Text>Details</Text>
         </View>
       )}
-      options={{ headerTitle: '' }}
     />
-    <Stack.Screen
-      name="NewTask"
-      component={() => (
-        <View>
-          <Text>New Task</Text>
-        </View>
-      )}
-      options={{ headerTitle: '' }}
-    />
+    <Stack.Screen name="NewTask" component={NewTask} />
   </Stack.Navigator>
 );
 
