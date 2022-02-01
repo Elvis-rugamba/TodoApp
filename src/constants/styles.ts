@@ -100,7 +100,7 @@ const STYLES: Styles = {
   },
   center: {
     alignItems: 'center',
-    alignSelf: 'center',
+    // alignSelf: 'center',
   },
   left: {
     alignItems: 'flex-start',

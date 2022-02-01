@@ -30,14 +30,14 @@ const Header: React.FC<HeaderProps> = ({
               type="Ionicons"
               name={leftIcon || 'arrow-back'}
               size={theme.SIZES.ICON}
-              color={color || '#FFF'}
+              color={color || theme.COLORS.DEFAULT}
             />
           </Pressable>
         )}
       </View>
       <View style={styles.centerView}>
         {title && (
-          <Text body1 bold color={color || '#FFF'} style={styles.title}>
+          <Text title bold color={color || '#FFF'} style={styles.title}>
             {title}
           </Text>
         )}

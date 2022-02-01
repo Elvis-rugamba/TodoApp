@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native';
+import moment from 'moment';
 
 import Block from '../Block';
 import Text from '../Text';
@@ -42,7 +43,7 @@ const ListItem: React.FC<ListItemProps> = ({ item, index, onPress, style }) => {
             color={theme.COLORS.SECONDARY}
             numberOfLines={1}
             style={styles.date}>
-            Created {createdDate?.toLocaleDateString()}
+            Created {moment(createdDate).format('DD MMM YYYY')}
           </Text>
           <Text
             overline
@@ -50,7 +51,7 @@ const ListItem: React.FC<ListItemProps> = ({ item, index, onPress, style }) => {
             color={theme.COLORS.SECONDARY}
             numberOfLines={1}
             style={styles.date}>
-            Modified {modifiedDate?.toLocaleDateString()}
+            Modified {moment(modifiedDate).format('DD MMM YYYY')}
           </Text>
         </Block>
       </Block>

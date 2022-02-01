@@ -3,7 +3,9 @@ import { RootState } from '../../rootReducer';
 
 export const selectRaw = (state: RootState) => state.todo;
 
-export const selectTodos = createSelector([selectRaw], todo => todo.todos);
+export const selectTodos = createSelector([selectRaw], todo => [
+  ...todo.todos.reverse(),
+]);
 
 export const selectActiveTodos = createSelector(
   [selectRaw],

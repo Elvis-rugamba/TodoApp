@@ -1,4 +1,3 @@
-import { Todo } from '../../../types';
 import { TodoAction } from './actions';
 import {
   CREATE,
@@ -17,48 +16,7 @@ export type TodoState = {
 };
 
 const initialState: TodoState = {
-  todos: [
-    // {
-    //   title: 'Buy hand sanitizers',
-    //   description:
-    //     'Call HB to confirm with the quantity and the price. Remember the TIN number too',
-    //   priority: 'Medium',
-    //   id: 1,
-    //   createdDate: new Date(),
-    //   modifiedDate: new Date(),
-    //   done: false,
-    // },
-    // {
-    //   title: 'Call Awesomity Lab',
-    //   description:
-    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    //   priority: 'Medium',
-    //   id: 2,
-    //   createdDate: new Date(),
-    //   modifiedDate: new Date(),
-    //   done: true,
-    // },
-    // {
-    //   title: 'Submit Awesomity challenge',
-    //   description:
-    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    //   priority: 'High',
-    //   id: 3,
-    //   createdDate: new Date(),
-    //   modifiedDate: new Date(),
-    //   done: false,
-    // },
-    // {
-    //   title: 'Eat Vegies',
-    //   description:
-    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    //   priority: 'Low',
-    //   id: 4,
-    //   createdDate: new Date(),
-    //   modifiedDate: new Date(),
-    //   done: false,
-    // },
-  ],
+  todos: [],
   active: [],
   done: [],
   todo: null,
@@ -77,6 +35,9 @@ export default (
           ...state.todos,
           {
             id: ids.length > 0 ? Math.max(...ids) + 1 : 1,
+            createdDate: new Date(),
+            modifiedDate: new Date(),
+            done: false,
             ...payload,
           },
         ],

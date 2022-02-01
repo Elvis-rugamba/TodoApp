@@ -1,5 +1,4 @@
 import { AnyAction } from 'redux';
-import { Todo } from '../../../types';
 import {
   CREATE,
   GET_ALL,
