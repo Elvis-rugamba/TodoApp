@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
 
@@ -10,16 +10,24 @@ import PickerOptionsModal from '../PickerOptionsModal';
 export type ImagePickerProps = {
   label: string;
   placeholder: string;
+  image?: string;
   onChange?: (arg0: any) => void;
 };
 
 const ImagePicker: React.FC<ImagePickerProps> = ({
   label,
   placeholder,
+  image,
   onChange,
 }) => {
   const [showOptionModal, setShowOptionModal] = useState(false);
   const [picture, setPicture] = useState<any>(null);
+
+  useEffect(() => {
+    if (image) {
+      setPicture({ uri: image });
+    }
+  }, [image]);
 
   const onPress = () => {
     setShowOptionModal(true);

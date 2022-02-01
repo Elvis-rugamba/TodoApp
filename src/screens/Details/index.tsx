@@ -75,7 +75,7 @@ const Details: React.FC<DetailsProps> = ({ navigation, route }) => {
                   iconSize={18}
                   iconColor={theme.COLORS.SECONDARY}
                   style={styles.action}
-                  onPress={() => navigation.navigate('NewTask')}
+                  onPress={() => navigation.navigate('EditTask', { itemId })}
                 />
                 <Button
                   onlyIcon
