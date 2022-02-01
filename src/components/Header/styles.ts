@@ -9,15 +9,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.COLORS.WHITE,
     paddingHorizontal: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-
-    elevation: 10,
   },
   leftView: {
     width: 30,
@@ -27,8 +18,7 @@ const styles = StyleSheet.create({
   },
   centerView: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginHorizontal: 10,
   },
   rightView: {
     width: 30,
@@ -38,10 +28,19 @@ const styles = StyleSheet.create({
   },
   title: {
     ...theme.STYLES.title,
-    textAlign: 'center',
   },
   button: {
     alignItems: 'center',
+  },
+  shadow: {
+    shadowColor: theme.COLORS.DEFAULT,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation: 10,
   },
 });
 

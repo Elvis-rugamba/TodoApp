@@ -28,3 +28,5 @@ export const DELETE = `${prefix}_DELETE`;
 export const DELETE_START = `${prefix}_DELETE_START`;
 export const DELETE_SUCCESS = `${prefix}_DELETE_SUCCESS`;
 export const DELETE_ERROR = `${prefix}_DELETE_ERROR`;
+
+export const MARK_DONE = `${prefix}_MARK_DONE`;

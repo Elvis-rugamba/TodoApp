@@ -7,7 +7,6 @@ import Text from '../Text';
 import Button from '../Button';
 import Icon from '../Icon';
 import theme from '../../constants/theme';
-import { Todo } from '../../types';
 import styles from './styles';
 import Badge from '../Badge';
 
@@ -19,15 +18,19 @@ export type ListItemProps = {
 };
 
 const ListItem: React.FC<ListItemProps> = ({ item, index, onPress, style }) => {
-  const { title, priority, createdDate, modifiedDate } = item;
+  const { title, priority, createdDate, modifiedDate, done } = item;
 
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[styles.item, style && style]}
+      style={[styles.item, done && styles.overlay, style && style]}
       onPress={onPress}>
       <Block style={styles.itemLeft}>
-        <Icon type="Ionicons" name="checkbox-outline" size={28} />
+        <Icon
+          type="Ionicons"
+          name={done ? 'checkbox' : 'checkbox-outline'}
+          size={28}
+        />
       </Block>
       <Block flex style={styles.itemCenter}>
         <Text body1 bold>

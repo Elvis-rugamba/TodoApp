@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   TouchableOpacity,
-  Text,
   ActivityIndicator,
   StyleSheet,
   TouchableOpacityProps,
@@ -9,6 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
+import Text from '../Text';
 import Icon, { IconProps } from '../Icon';
 
 import theme from '../../constants/theme';
@@ -71,7 +71,11 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const renderContent = () => {
-    const textStyles = [styles.customText, textStyle];
+    const textStyles = [
+      styles.customText,
+      inverse && { color: theme.COLORS.DEFAULT },
+      textStyle,
+    ];
 
     let content = children;
     const isString = children && typeof children === 'string';
@@ -87,7 +91,11 @@ const Button: React.FC<ButtonProps> = ({
         />
       );
     } else if (isString) {
-      content = <Text style={textStyles}>{content}</Text>;
+      content = (
+        <Text bold style={textStyles}>
+          {content}
+        </Text>
+      );
     }
 
     if (loading) {

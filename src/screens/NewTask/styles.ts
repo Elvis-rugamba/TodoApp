@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   form: {
     paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingBottom: 36,
   },
   button: {
     width: '50%',

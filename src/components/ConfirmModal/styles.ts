@@ -17,8 +17,12 @@ const styles = StyleSheet.create({
   cardItem: {
     padding: 8,
   },
+  buttons: {
+    paddingVertical: 8,
+  },
   button: {
-    height: 56,
+    height: 48,
+    marginHorizontal: 4,
   },
   buttonText: {
     color: theme.COLORS.WHITE,
