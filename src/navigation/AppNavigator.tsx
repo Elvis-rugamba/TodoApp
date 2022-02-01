@@ -1,9 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Text, View } from 'react-native';
 
 import Home from '../screens/Home';
 import NewTask from '../screens/NewTask';
+import Details from '../screens/Details';
 
 export type StackParamList = {
   Home: undefined;
@@ -18,14 +18,7 @@ const AppNavigator = () => (
     initialRouteName="Home"
     screenOptions={{ headerShown: false }}>
     <Stack.Screen name="Home" component={Home} />
-    <Stack.Screen
-      name="Details"
-      component={() => (
-        <View>
-          <Text>Details</Text>
-        </View>
-      )}
-    />
+    <Stack.Screen name="Details" component={Details} />
     <Stack.Screen name="NewTask" component={NewTask} />
   </Stack.Navigator>
 );

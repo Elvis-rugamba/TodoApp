@@ -11,6 +11,7 @@ export type HeaderProps = ViewProps & {
   leftIcon?: string;
   title?: string;
   color?: string;
+  noShadow?: boolean;
   style?: ViewStyle;
 };
 
@@ -19,10 +20,11 @@ const Header: React.FC<HeaderProps> = ({
   leftIcon,
   title,
   color,
+  noShadow,
   style,
 }) => {
   return (
-    <View style={[styles.header, style]}>
+    <View style={[styles.header, !noShadow && styles.shadow, style]}>
       <View style={styles.leftView}>
         {leftHandler && (
           <Pressable style={styles.button} onPress={leftHandler}>
@@ -37,7 +39,11 @@ const Header: React.FC<HeaderProps> = ({
       </View>
       <View style={styles.centerView}>
         {title && (
-          <Text title bold color={color || '#FFF'} style={styles.title}>
+          <Text
+            title
+            bold
+            color={color || theme.COLORS.DEFAULT}
+            style={styles.title}>
             {title}
           </Text>
         )}

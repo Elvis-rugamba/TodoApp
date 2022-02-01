@@ -6,6 +6,7 @@ import {
   GET_SINGLE,
   UPDATE,
   DELETE,
+  MARK_DONE,
 } from './types';
 
 export type TodoState = {
@@ -65,7 +66,9 @@ export default (
       return {
         ...state,
         todos: state.todos.map(todo =>
-          todo.id !== payload.id ? todo : { ...todo, ...payload.todo },
+          todo.id !== payload.id
+            ? todo
+            : { ...todo, ...payload.todo, modifiedDate: new Date() },
         ),
       };
 
@@ -73,6 +76,14 @@ export default (
       return {
         ...state,
         todos: state.todos.filter(todo => todo.id !== payload),
+      };
+
+    case MARK_DONE:
+      return {
+        ...state,
+        todos: state.todos.map(todo =>
+          todo.id !== payload ? todo : { ...todo, done: true },
+        ),
       };
 
     default:

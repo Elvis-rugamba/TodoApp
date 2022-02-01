@@ -30,6 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
+  overlay: {
+    opacity: 0.4,
+  },
 });
 
 export default styles;

@@ -38,7 +38,7 @@ const PickerOptionsModal: React.FC<PickerOptionsModal> = ({
             center
             space="between"
             style={[styles.cardItem, styles.marginBottom]}>
-            <Text title bold color={theme.COLORS.BLACK}>
+            <Text title bold>
               Select Option
             </Text>
             <Button

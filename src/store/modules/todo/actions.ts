@@ -7,6 +7,7 @@ import {
   GET_SINGLE,
   UPDATE,
   DELETE,
+  MARK_DONE,
 } from './types';
 
 export interface TodoAction extends AnyAction {
@@ -43,5 +44,10 @@ export const updateTodo = (id: number, todo: Todo): TodoAction => ({
 
 export const deleteTodo = (id: number): TodoAction => ({
   type: DELETE,
+  payload: id,
+});
+
+export const markDoneTodo = (id: number): TodoAction => ({
+  type: MARK_DONE,
   payload: id,
 });

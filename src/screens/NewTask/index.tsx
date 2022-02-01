@@ -8,13 +8,13 @@ import Block from '../../components/Block';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
+import Input from '../../components/Input';
+import ImagePicker from '../../components/ImagePicker';
 import { StackParamList } from '../../navigation/AppNavigator';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { createTodo } from '../../store/modules/todo/actions';
 import theme from '../../constants/theme';
 import styles from './styles';
-import Input from '../../components/Input';
-import ImagePicker from '../../components/ImagePicker';
 
 type NewTaskProps = {
   navigation: NativeStackScreenProps<StackParamList, 'NewTask'>['navigation'];
@@ -46,7 +46,7 @@ const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
   return (
     <Block safe flex style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={theme.COLORS.WHITE} />
-      <Header leftHandler={() => navigation.goBack()} title="New Task" />
+      <Header leftHandler={() => navigation.goBack()} />
       <ScrollView>
         <Block flex style={styles.content}>
           <Block style={styles.titleView}>

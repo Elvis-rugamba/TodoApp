@@ -30,14 +30,6 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
   const todos = useAppSelector(selectTodos);
   const activeTodos = useAppSelector(selectActiveTodos);
   const doneTodos = useAppSelector(selectDoneTodos);
-  console.log(
-    'todos',
-    todos,
-    'activeTodos',
-    activeTodos,
-    'doneTodos',
-    doneTodos,
-  );
 
   useEffect(() => {
     dispatch(getActiveTodos());
