@@ -3,12 +3,13 @@ import { ScrollView, Image, StatusBar } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import moment from 'moment';
 
+import { StackParamList } from '../../navigation/AppNavigator';
 import Block from '../../components/Block';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import Badge from '../../components/Badge';
-import { StackParamList } from '../../navigation/AppNavigator';
+import ConfirmModal from '../../components/ConfirmModal';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import useAppSelector from '../../hooks/useAppSelector';
 import {
@@ -20,7 +21,6 @@ import { selectTodo } from '../../store/modules/todo/selectors';
 import theme from '../../constants/theme';
 import styles from './styles';
 import Icon from '../../components/Icon';
-import ConfirmModal from '../../components/ConfirmModal';
 
 type DetailsProps = {
   navigation: NativeStackScreenProps<StackParamList, 'Details'>['navigation'];
@@ -32,17 +32,22 @@ const Details: React.FC<DetailsProps> = ({ navigation, route }) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const dispatch = useAppDispatch();
   const todo = useAppSelector(selectTodo);
-  console.log(todo);
 
   useEffect(() => {
     dispatch(getSingleTodo(itemId));
   }, [itemId, dispatch]);
 
+  /**
+   * Delete a todo item
+   */
   const deleteItem = () => {
     dispatch(deleteTodo(itemId));
     navigation.navigate('Home');
   };
 
+  /**
+   * Mark a todo item as done
+   */
   const markDone = () => {
     dispatch(markDoneTodo(itemId));
     navigation.navigate('Home');
