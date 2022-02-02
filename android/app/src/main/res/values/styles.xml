@@ -5,4 +5,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+        <!-- Set system bars background transparent -->
+        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+    </style>
+     <style name="SplashStatusBarTheme" parent="SplashScreen_SplashTheme">
+        <item name="colorPrimaryDark">@color/primary</item>
+    </style>
+
 </resources>
