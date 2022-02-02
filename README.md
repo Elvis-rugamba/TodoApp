@@ -20,7 +20,7 @@ npm install
 ```
 npm i
 ```
-3. Start the application by running the script on android or IOS
+3. Start the application by running the script on Android or IOS(not supported)
 
 ```
 npm run android
