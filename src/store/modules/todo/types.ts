@@ -30,3 +30,7 @@ export const DELETE_SUCCESS = `${prefix}_DELETE_SUCCESS`;
 export const DELETE_ERROR = `${prefix}_DELETE_ERROR`;
 
 export const MARK_DONE = `${prefix}_MARK_DONE`;
+
+export const SEARCH = `${prefix}_SEARCH`;
+
+export const FILTER = `${prefix}_FILTER`;

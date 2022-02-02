@@ -14,24 +14,34 @@ type NavigationProp = NativeStackScreenProps<
   'Home'
 >['navigation'];
 
-export type ListEmptyProps = {};
+export type ListEmptyProps = {
+  title: string;
+  description: string;
+  action: boolean;
+};
 
-const ListEmpty: React.FC<ListEmptyProps> = () => {
+const ListEmpty: React.FC<ListEmptyProps> = ({
+  title,
+  description,
+  action,
+}) => {
   const navigation = useNavigation<NavigationProp>();
 
   return (
     <Block flex middle style={styles.container}>
       <Text body1 bold>
-        NOTHING HERE
+        {title}
       </Text>
       <Text body2 bold color={theme.COLORS.SECONDARY}>
-        Just like your crush's replies
+        {description}
       </Text>
-      <Button
-        style={styles.button}
-        onPress={() => navigation.navigate('NewTask')}>
-        Start With a New Task
-      </Button>
+      {action ? (
+        <Button
+          style={styles.button}
+          onPress={() => navigation.navigate('NewTask')}>
+          Start With a New Task
+        </Button>
+      ) : null}
     </Block>
   );
 };

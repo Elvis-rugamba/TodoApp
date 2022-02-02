@@ -18,7 +18,7 @@ import theme from '../../constants/theme';
 export type InputProps = TextInputProps &
   PickerProps &
   ViewProps & {
-    label: string;
+    label?: string;
     placeholder?: string;
     placeholderTextColor?: string;
     type?: KeyboardTypeOptions;

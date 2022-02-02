@@ -4,13 +4,13 @@ import { Picker } from '@react-native-picker/picker';
 import { useForm, Controller } from 'react-hook-form';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import { StackParamList } from '../../navigation/AppNavigator';
 import Block from '../../components/Block';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import Input from '../../components/Input';
 import ImagePicker from '../../components/ImagePicker';
-import { StackParamList } from '../../navigation/AppNavigator';
 import useAppDispatch from '../../hooks/useAppDispatch';
 import { createTodo } from '../../store/modules/todo/actions';
 import theme from '../../constants/theme';
@@ -33,10 +33,17 @@ const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
   });
   const dispatch = useAppDispatch();
 
+  /**
+   * Handle picked image
+   * @param data
+   */
   const onImagePicker = (data: any) => {
     setImage(data.uri);
   };
 
+  /**
+   * Create a new task
+   */
   const onSubmit = handleSubmit(({ title, description, priority }) => {
     dispatch(createTodo({ title, description, priority, image: image }));
     navigation.navigate('Home');

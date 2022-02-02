@@ -19,6 +19,11 @@ const PickerOptionsModal: React.FC<PickerOptionsModal> = ({
   close,
   onSelectOption,
 }) => {
+  /**
+   * Handle selected option
+   *
+   * @param {string} option
+   */
   const selectOption = (option: 'library' | 'camera') => {
     onSelectOption(option);
     close();

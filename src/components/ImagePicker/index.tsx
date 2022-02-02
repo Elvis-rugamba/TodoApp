@@ -29,10 +29,18 @@ const ImagePicker: React.FC<ImagePickerProps> = ({
     }
   }, [image]);
 
+  /**
+   * Show option modal
+   */
   const onPress = () => {
     setShowOptionModal(true);
   };
 
+  /**
+   * Handle selected option
+   *
+   * @param {string} option
+   */
   const onSelectOption = (option: 'library' | 'camera') => {
     if (option === 'library') {
       openLibrary();
@@ -41,6 +49,12 @@ const ImagePicker: React.FC<ImagePickerProps> = ({
     }
   };
 
+  /**
+   * Handle response from image picker
+   *
+   * @param {Object} response
+   * @returns
+   */
   const onResponse = (response: any) => {
     if (response.didCancel || response.errorCode) {
       return;
@@ -51,6 +65,9 @@ const ImagePicker: React.FC<ImagePickerProps> = ({
     }
   };
 
+  /**
+   * Open image library
+   */
   const openLibrary = async () => {
     const response = await launchImageLibrary({
       mediaType: 'photo',
@@ -62,6 +79,9 @@ const ImagePicker: React.FC<ImagePickerProps> = ({
     onResponse(response);
   };
 
+  /**
+   * Open camera
+   */
   const openCamera = async () => {
     const response = await launchCamera({
       saveToPhotos: true,
